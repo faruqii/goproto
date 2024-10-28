@@ -5,6 +5,7 @@ import (
 	"log"
 	"net"
 
+	"github.com/faruqii/goproto/internal/app"
 	"github.com/faruqii/goproto/internal/config/database"
 	"github.com/faruqii/goproto/internal/domain/repositories"
 	"github.com/faruqii/goproto/internal/services"
@@ -16,13 +17,14 @@ import (
 
 func main() {
 
+	// Load environment variables from .env file
 	err := godotenv.Load()
-
 	if err != nil {
 		fmt.Println("Error loading .env file")
 		return
 	}
 
+	// Connect to the database
 	db, err := database.Connect()
 	if err != nil {
 		log.Fatalf("Could not connect to the database: %v", err)
@@ -37,8 +39,14 @@ func main() {
 	// Create a new gRPC server instance
 	grpcServer := grpc.NewServer()
 
+	// Initialize Elasticsearch client
+	esClient, err := app.GetESClients()
+	if err != nil {
+		log.Fatalf("Could not create Elasticsearch client: %v", err)
+	}
+
 	// Repository
-	productRepo := repositories.NewProductRepository(db)
+	productRepo := repositories.NewProductRepository(db, esClient) // Pass the ES client
 	userRepo := repositories.NewUserRepository(db)
 
 	// Register the ProductService with the server
