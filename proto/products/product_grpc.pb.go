@@ -4,7 +4,7 @@
 // - protoc             v5.28.2
 // source: proto/products/product.proto
 
-package proto
+package products
 
 import (
 	context "context"

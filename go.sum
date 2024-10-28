@@ -1,12 +1,6 @@
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
-github.com/faruqii/faruqi-protos v0.0.0-20241025093051-612dd6be30dc h1:p5mXX8lr6cS/QGdptrzk9tLAYRL9J8i6mH+iC9hA+i4=
-github.com/faruqii/faruqi-protos v0.0.0-20241025093051-612dd6be30dc/go.mod h1:CdOI8sYnX/OYQBgpHoLD6jSMcK0iK4SQXtuO66WRakM=
-github.com/faruqii/faruqi-protos v1.0.0 h1:HLHceikdGRbPqxi7PIDfEVUEJFzzk0a/QbCvW5LpdHM=
-github.com/faruqii/faruqi-protos v1.0.0/go.mod h1:CdOI8sYnX/OYQBgpHoLD6jSMcK0iK4SQXtuO66WRakM=
-github.com/faruqii/faruqi-protos v1.0.1 h1:uuLyC8zeIsC4xdiB5Vs75sSt1+bCy7AKF1cOC5DsFjs=
-github.com/faruqii/faruqi-protos v1.0.1/go.mod h1:CdOI8sYnX/OYQBgpHoLD6jSMcK0iK4SQXtuO66WRakM=
 github.com/google/go-cmp v0.6.0 h1:ofyhxvXcZhMsU5ulbFiLKl/XBFqE1GSq7atu8tAmTRI=
 github.com/google/go-cmp v0.6.0/go.mod h1:17dUlkBOakJ0+DkrSSNjCkIjxS6bF9zb3elmeNGIjoY=
 github.com/google/uuid v1.6.0 h1:NIvaJDMOsjHA8n1jAhLSgzrAzy1Hgr+hNrb57e+94F0=

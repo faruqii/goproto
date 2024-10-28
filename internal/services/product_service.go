@@ -5,13 +5,13 @@ import (
 
 	"github.com/faruqii/goproto/internal/domain/entities"
 	"github.com/faruqii/goproto/internal/domain/repositories"
-	"github.com/faruqii/goproto/internal/proto"
+	"github.com/faruqii/goproto/proto/products"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
 
 type ProductServiceServer struct {
-	proto.UnimplementedProductServiceServer
+	products.UnimplementedProductServiceServer
 	repo repositories.ProductRepository
 }
 
@@ -19,7 +19,7 @@ func NewProductService(repo repositories.ProductRepository) *ProductServiceServe
 	return &ProductServiceServer{repo: repo}
 }
 
-func (s *ProductServiceServer) CreateProduct(ctx context.Context, req *proto.CreateProductRequest) (*proto.CreateProductResponse, error) {
+func (s *ProductServiceServer) CreateProduct(ctx context.Context, req *products.CreateProductRequest) (*products.CreateProductResponse, error) {
 	if req.Name == "" || req.Price <= 0 {
 		return nil, status.Error(codes.InvalidArgument, "Invalid product details")
 	}
@@ -33,9 +33,9 @@ func (s *ProductServiceServer) CreateProduct(ctx context.Context, req *proto.Cre
 		return nil, status.Error(codes.InvalidArgument, "Failed to create product")
 	}
 
-	response := &proto.CreateProductResponse{
+	response := &products.CreateProductResponse{
 		Message: "Product created successfully",
-		Result: &proto.Product{
+		Result: &products.Product{
 			Id:          product.Id,
 			Name:        product.Name,
 			Description: product.Description,

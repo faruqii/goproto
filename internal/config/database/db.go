@@ -40,6 +40,7 @@ func Connect() (*gorm.DB, error) {
 
 	err = conn.AutoMigrate(
 		entities.Product{},
+		entities.User{},
 	)
 
 	return conn, err

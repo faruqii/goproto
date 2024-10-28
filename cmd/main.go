@@ -7,8 +7,9 @@ import (
 
 	"github.com/faruqii/goproto/internal/config/database"
 	"github.com/faruqii/goproto/internal/domain/repositories"
-	"github.com/faruqii/goproto/internal/proto"
 	"github.com/faruqii/goproto/internal/services"
+	"github.com/faruqii/goproto/proto/products"
+	"github.com/faruqii/goproto/proto/users"
 	"github.com/joho/godotenv"
 	"google.golang.org/grpc"
 )
@@ -38,10 +39,15 @@ func main() {
 
 	// Repository
 	productRepo := repositories.NewProductRepository(db)
+	userRepo := repositories.NewUserRepository(db)
 
 	// Register the ProductService with the server
 	productService := services.NewProductService(productRepo)
-	proto.RegisterProductServiceServer(grpcServer, productService)
+	products.RegisterProductServiceServer(grpcServer, productService)
+
+	// Register the UserService with the server
+	userService := services.NewUserService(userRepo)
+	users.RegisterUserServiceServer(grpcServer, userService)
 
 	log.Println("gRPC server is running on port :50051")
 
